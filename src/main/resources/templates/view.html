@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head data-th-replace="fragments/layout :: headFragment(title=${item.documentName})"></head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+
+            <h1>[[${item.documentName}]]</h1>
+
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title" data-th-text="${item.nameSurname}"></span>
+                    <p data-th-text="${item.documentInformation}"></p>
+                    <img data-th-src="@{/media/{path}(path=${item.path})}">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s1">
+                    <div class="card-action">
+                        <form data-th-action="@{/{id}/edit(id=${item.id})}" method="get">
+                            <button class="waves-effect indigo btn" type="submit">Изменить</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col s1"></div>
+
+                <div class="col s1">
+                    <div class="card-action">
+                        <form data-th-action="@{/{id}/remove(id=${item.id})}">
+                            <button class="waves-effect indigo btn" type="submit">Удалить</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col s1"></div>
+
+                <div class="col s1">
+                    <button class="btn disabled" type="submit">Печать</button>
+                </div>
+
+                <div class="col s1"></div>
+
+                <div class="col s1">
+                    <div class="card-action">
+                        <form data-th-action="@{/}">
+                            <button class="waves-effect indigo btn" type="submit">Назад</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div data-th-include="fragments/layout :: scriptsFragment" data-th-remove="tag"></div>
+
+</body>
+</html>

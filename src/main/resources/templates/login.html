@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head data-th-replace="fragments/layout :: headFragment(title='Авторизация')"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h1>Добро пожаловать</h1>
+            <form name="f" data-th-action="@{/login}" method="post">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Login" id="login" name="username" type="text" class="validate" required>
+                        <label for="login">Login</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Password" id="password" name="password" type="password" class="validate" required>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <button class="waves-effect indigo btn" type="submit">Далее</button>
+            </form>
+
+        </div>
+    </div>
+
+
+    <div data-th-include="fragments/layout :: scriptsFragment" data-th-remove="tag"></div>
+</div>
+</body>
+</html>
